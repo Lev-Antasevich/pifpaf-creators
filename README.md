@@ -19,7 +19,7 @@
 Нужен [Node.js](https://nodejs.org/) 18 или новее.
 
 ```bash
-git clone <url-репозитория>
+git clone https://github.com/Lev-Antasevich/pifpaf-creators
 cd pifpaf-creators
 npm install
 cp .env.example .env
