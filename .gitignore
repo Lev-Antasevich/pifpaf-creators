@@ -1,0 +1,7 @@
+node_modules/
+.env
+data/store.json
+public/covers/*
+!public/covers/.gitkeep
+!public/covers/demo*.jpg
+.DS_Store
