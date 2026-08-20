@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PifPaf Creators — кабинет блогеров</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body class="landing">
+    <div class="blob blob-a"></div>
+    <div class="blob blob-b"></div>
+    <header class="topbar">
+      <a class="brand" href="/">
+        <span class="brand-mark">✦</span>
+        PifPaf <em>Creators</em>
+      </a>
+      <nav class="top-links">
+        <a href="#auth">Войти</a>
+        <a class="btn btn-primary btn-sm" href="#auth">Начать</a>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <h1>
+        Твои Reels.<br />
+        Живые <span class="word-soft">цифры.</span>
+      </h1>
+      <p class="lede">
+        Вставь ссылку из Instagram — в ленте появятся обложка, дата и просмотры.
+        У каждого свой кабинет и свои рилсы.
+      </p>
+
+      <div class="float-pills">
+        <span class="pill pink">♥ Просмотры</span>
+        <span class="pill lilac">Обложка из Reels</span>
+        <span class="pill peach">✦ 10 секунд</span>
+      </div>
+
+      <section class="auth-card" id="auth">
+        <div class="tabs">
+          <button class="tab is-on" data-tab="login" type="button">Войти</button>
+          <button class="tab" data-tab="register" type="button">Создать кабинет</button>
+        </div>
+
+        <form id="login-form" class="auth-form">
+          <label>Email
+            <input type="email" name="email" autocomplete="email" required placeholder="demo@pifpafai.com" />
+          </label>
+          <label>Пароль
+            <input type="password" name="password" autocomplete="current-password" required placeholder="••••••" />
+          </label>
+          <button class="btn btn-primary btn-block" type="submit">Войти в кабинет →</button>
+          <button class="btn btn-ghost btn-block" id="demo-fill" type="button">Открыть демо</button>
+        </form>
+
+        <form id="register-form" class="auth-form hidden">
+          <label>Имя
+            <input type="text" name="name" required placeholder="Вика" />
+          </label>
+          <label>Instagram
+            <input type="text" name="handle" placeholder="@viki.trends" />
+          </label>
+          <label>Email
+            <input type="email" name="email" autocomplete="email" required placeholder="you@pifpafai.com" />
+          </label>
+          <label>Пароль
+            <input type="password" name="password" autocomplete="new-password" required minlength="6" placeholder="минимум 6 символов" />
+          </label>
+          <button class="btn btn-primary btn-block" type="submit">Создать кабинет →</button>
+        </form>
+        <p class="form-error" id="auth-error" hidden></p>
+      </section>
+    </main>
+    <script src="/js/auth.js"></script>
+  </body>
+</html>

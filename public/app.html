@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Кабинет — PifPaf Creators</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body class="app-body">
+    <aside class="sidebar">
+      <a class="brand" href="/app">
+        <span class="brand-mark">✦</span>
+        PifPaf <em>Creators</em>
+      </a>
+      <nav class="side-nav">
+        <button class="nav-btn is-on" data-view="overview" type="button">Обзор</button>
+        <button class="nav-btn" data-view="feed" type="button">Лента</button>
+        <button class="nav-btn" data-view="table" type="button">Таблица</button>
+        <button class="nav-btn" data-view="analytics" type="button">Аналитика</button>
+        <button class="nav-btn" data-view="profile" type="button">Кабинет</button>
+      </nav>
+      <button class="side-user" id="side-user" data-view="profile" type="button"></button>
+    </aside>
+
+    <div class="shell">
+      <header class="app-head">
+        <div>
+          <p class="kicker" id="kicker">Обзор</p>
+          <h2 id="page-title">Обзор</h2>
+        </div>
+        <div class="head-actions">
+          <button class="btn btn-ghost" id="refresh-all" type="button">Обновить цифры</button>
+          <button class="btn btn-primary" id="add-open" type="button">+ Добавить рилс</button>
+        </div>
+      </header>
+
+      <section class="view is-on" id="view-overview">
+        <div class="stats" id="stats-row"></div>
+        <div class="panel">
+          <div class="panel-head">
+            <h3>Последние рилсы</h3>
+            <button class="text-link" data-view="feed" type="button">вся лента</button>
+          </div>
+          <div class="masonry masonry-compact" id="overview-feed"></div>
+        </div>
+      </section>
+
+      <section class="view" id="view-feed">
+        <div class="toolbar">
+          <input class="search" id="feed-search" type="search" placeholder="Поиск по подписи или @аккаунту" />
+          <div class="seg" role="tablist">
+            <button class="seg-btn is-on" data-sort="new" type="button">Новые</button>
+            <button class="seg-btn" data-sort="views" type="button">По просмотрам</button>
+          </div>
+        </div>
+        <div class="masonry" id="feed-grid"></div>
+        <p class="empty hidden" id="feed-empty">Пока пусто — добавь первую ссылку из Instagram.</p>
+      </section>
+
+      <section class="view" id="view-table">
+        <div class="table-wrap">
+          <table class="pretty-table">
+            <thead>
+              <tr>
+                <th>Рилс</th>
+                <th>Дата</th>
+                <th>Просмотры</th>
+                <th>Лайки</th>
+                <th>Комменты</th>
+                <th>Синхрон</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="view" id="view-analytics">
+        <div class="stats" id="analytics-stats"></div>
+        <div class="split">
+          <article class="panel chart-panel">
+            <div class="panel-head"><h3>Просмотры по дням</h3></div>
+            <div class="chart-frame">
+              <canvas id="views-chart"></canvas>
+            </div>
+          </article>
+          <article class="panel best-card" id="best-card"></article>
+        </div>
+      </section>
+
+      <section class="view" id="view-profile">
+        <article class="panel profile-panel">
+          <h3>Личный кабинет</h3>
+          <form id="profile-form" class="auth-form">
+            <label>Имя
+              <input type="text" name="name" required />
+            </label>
+            <label>Instagram
+              <input type="text" name="handle" placeholder="@username" />
+            </label>
+            <p class="hint" id="profile-email"></p>
+            <button class="btn btn-primary" type="submit">Сохранить</button>
+          </form>
+          <div class="status-box" id="apify-box"></div>
+          <button class="btn btn-ghost" id="logout" type="button">Выйти</button>
+        </article>
+      </section>
+    </div>
+
+    <div class="modal hidden" id="modal">
+      <div class="modal-card">
+        <h3>Добавить рилс</h3>
+        <p class="lede sm">Вставь ссылку из Instagram — обложка, дата и просмотры подтянутся через Apify.</p>
+        <form id="add-form">
+          <input class="url-input" name="url" type="url" required placeholder="https://www.instagram.com/reel/…" />
+          <div class="modal-actions">
+            <button class="btn btn-ghost" id="add-cancel" type="button">Закрыть</button>
+            <button class="btn btn-primary" type="submit">Подтянуть</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" hidden></div>
+    <nav class="mobile-nav">
+      <button data-view="overview" type="button">Обзор</button>
+      <button data-view="feed" type="button">Лента</button>
+      <button data-view="table" type="button">Таблица</button>
+      <button data-view="analytics" type="button">Цифры</button>
+    </nav>
+    <script src="/js/app.js"></script>
+  </body>
+</html>
